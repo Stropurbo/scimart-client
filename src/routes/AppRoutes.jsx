@@ -14,6 +14,9 @@ import Profile from '../pages/profile';
 import ForgetPassPage from '../pages/ForgetPassPage';
 import ResetPasswordConfirmPage from '../pages/ResetPasswordConfirmPage';
 import ResendActivation from '../pages/ResendActivation';
+import ProductDetail from '../pages/ProductDetail';
+import Cart from '../pages/Cart';
+import OrderPage from '../pages/OrderPage';
 
 const AppRoutes = () => {
     return (
@@ -31,11 +34,11 @@ const AppRoutes = () => {
                     <Route path='forget-password' element={<ForgetPassPage />}  />   
                     <Route path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirmPage />}  />                            
                     <Route path='resend-activation' element={<ResendActivation />} />
+                    <Route path='shop/:id' element={<ProductDetail />} />
                 
                 </Route>
 
                 {/* private routes */}
-
                 <Route path='dashboard'
                 element={                 
                 <PrivateRoute>
@@ -45,14 +48,15 @@ const AppRoutes = () => {
 
                 <Route index element={<Dashboard />} /> 
                 <Route path='profile' element={<Profile />} />
-  <Route path='activate/:uid/:token' element={<ActivateAccount />}  />   
-
+                <Route path='activate/:uid/:token' element={<ActivateAccount />}  />   
+                <Route path='cart' element={<Cart />} />
+                <Route path='orders' element={<OrderPage/>} />
 
                 </Route>
 
-
-
+                
             </Routes>
+
         </div>
     );
 };

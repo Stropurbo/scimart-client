@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Order = () => {
+const Orders = () => {
     return (
         <div className="mt-6 card bg-base-100 shadow-sm">
       <div className="card-body">
@@ -61,4 +61,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default Orders;

@@ -4,6 +4,7 @@ import Pagination from '../shop/Pagination';
 import useFetchProduct from '../../hooks/useFetchProduct';
 import useFetchCategory from '../../hooks/useFetchCategory';
 import FilterSection from '../shop/FilterSection';
+import { Link } from 'react-router';
 
 const AllProduct = () => {
     
@@ -60,11 +61,11 @@ const AllProduct = () => {
 
 
 
-
-            <div  className='grid grid-cols-1 md:grid-cols-3'>              
-               
-                {myproduct.map((product) => (                                    
-                 <div key={product.id} className="card bg-base-100 w-96 shadow-sm">
+           
+            <div  className='grid grid-cols-1 md:grid-cols-3'>           
+                {myproduct.map((product) => (   
+                <Link to={`/shop/${product.id}`} key={product.id}>
+                 <div  className="card bg-base-100 w-96 shadow-sm">
                                 <figure className="px-10 pt-10">
                                   <img
                                     src= {product.images.length > 0 ? product.images[0].image : default_image}
@@ -80,10 +81,11 @@ const AllProduct = () => {
                                   </div>
                                 </div>
                               </div>
+                    </Link>
                 ))}
                 
             </div>
-
+           
             <div>
                 <Pagination totalpage={totalpage} 
                 currentpage={currentPage} 

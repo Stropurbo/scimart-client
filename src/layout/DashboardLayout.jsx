@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NavbarDashboard from '../components/Dashboard/NavbarDashboard';
-import Order from '../components/Dashboard/Order';
 import Sidebar from '../components/Dashboard/Sidebar';
 import { Outlet } from 'react-router';
 

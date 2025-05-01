@@ -1,6 +1,6 @@
 import StatCard from '../components/Dashboard/StatCard';
 import { FiPackage } from 'react-icons/fi';
-import Order from '../components/Dashboard/Order';
+import Order from '../components/Dashboard/Orders';
 
 const Dashboard = () => {   
 
