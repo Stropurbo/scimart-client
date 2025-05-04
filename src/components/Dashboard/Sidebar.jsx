@@ -2,26 +2,40 @@ import {
     FiBarChart2,
     FiPackage,
     FiPlusCircle,
+    FiShoppingBag,
     FiShoppingCart,
     FiStar,
     FiTag,
     FiUsers,
   } from "react-icons/fi";
   import { Link } from "react-router";
+import useAuthContext from "../../hooks/useAuthContext";
 
   const Sidebar = () => {
+    const {user} = useAuthContext();
 
-    const menuItems = [
+    const customerMenu = [
+      { to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
+      { to: "/dashboard/cart", icon: FiShoppingBag, label: "Cart" },
+      { to: "/dashboard/orders", icon: FiShoppingCart, label: "Order" },
+      { to: "/reviews", icon: FiStar, label: "Reviews" },
+    ]
+
+    const adminMenu = [
       { to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
       { to: "/all-product", icon: FiPackage, label: "Products" },
-      { to: "/products/add", icon: FiPlusCircle, label: "Add Product" },
+      { to: "/dashboard/product/add", icon: FiPlusCircle, label: "Add Product" },
       { to: "/category", icon: FiTag, label: "Categories" },
       { to: "/categories/add", icon: FiPlusCircle, label: "Add Category" },
-      { to: "/dashboard/cart", icon: FiShoppingCart, label: "Cart" },
+      { to: "/dashboard/cart", icon: FiShoppingBag, label: "Cart" },
       { to: "/dashboard/orders", icon: FiShoppingCart, label: "Order" },
       { to: "/reviews", icon: FiStar, label: "Reviews" },
       { to: "/users", icon: FiUsers, label: "Users" },
     ];
+
+    const menuItems = user.is_staff ? adminMenu : customerMenu
+
+
     return (
       <div className="drawer-side z-10">
         <label
@@ -33,7 +47,7 @@ import {
           {/* Sidebar header */}
           <div className="flex items-center gap-2 mb-6 px-2">
             <FiShoppingCart className="h-6 w-6" />
-            <h1 className="text-xl font-bold">SciMart</h1>
+            <a href="/" className="text-xl font-bold">SciMart</a>
           </div>
   
           {/* Sidebar menu */}
@@ -50,7 +64,7 @@ import {
   
           {/* Sidebar footer */}
           <div className="mt-auto pt-6 text-xs text-base-content/70">
-            © 2025 SciiMart Admin
+            © 2025 SciMart Admin
           </div>
         </aside>
       </div>

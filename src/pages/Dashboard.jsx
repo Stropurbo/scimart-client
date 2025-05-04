@@ -13,6 +13,7 @@ const Dashboard = () => {
                     <StatCard icon={FiPackage} title="Total Product" value="245" />
                     <StatCard icon={FiPackage} title="Total Product" value="245" />
                 </div>
+                
                 <Order />
             </div>      
     );

@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router';
 import apiClient from '../services/api-client';
 import { FaArrowLeft } from 'react-icons/fa';
 import defaultImage from '../assets/default_product.jpg'
+import ReviewSection from '../components/Reviews/ReviewSection';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState(null)
@@ -73,6 +74,8 @@ const ProductDetail = () => {
            
 
             </div>  
+
+            <ReviewSection />
         </div>
     );
 };

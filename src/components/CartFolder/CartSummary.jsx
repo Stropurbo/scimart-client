@@ -13,6 +13,7 @@ const CartSummary = ({totalPrice, itemCount, cartId}) => {
 
     const createOrder = async () => {
       try {
+        console.log("Sending cart_id to backend:", cartId);
         const res = await AuthApiClient.post('/orders/', { cart_id: cartId});
         if(res.status === 201){
           deleteCart()
