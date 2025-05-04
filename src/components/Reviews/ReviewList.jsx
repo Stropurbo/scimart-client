@@ -1,6 +1,15 @@
 import ReviewCard from './ReviewCard'
 
-const ReviewList = ({ reviews, user, editReview, setEditReview, editId, setEditId }) => {
+const ReviewList = ({
+	reviews,
+	user,
+	editReview,
+	setEditReview,
+	editId,
+	setEditId,
+	handleUpdateReview,
+	handleDeleteReview,
+}) => {
 	return (
 		<div>
 			{reviews.map((review) => (
@@ -15,11 +24,13 @@ const ReviewList = ({ reviews, user, editReview, setEditReview, editId, setEditI
 						setEditId(review.id)
 						setEditReview({
 							id: review.id,
-							rating: review.ratings,
+							ratings: review.ratings,
 							comment: review.comment,
 						})
 					}}
-					onCancelEdit = {() => setEditId(null)}
+					onCancelEdit={() => setEditId(null)}
+					onSaveEdit={handleUpdateReview}
+					onDeleteEdit={() => handleDeleteReview(review.id)}
 				/>
 			))}
 		</div>

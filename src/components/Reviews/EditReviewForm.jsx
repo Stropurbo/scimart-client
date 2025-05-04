@@ -1,6 +1,6 @@
 import StarRating from "./StarRating";
 
-const EditReviewForm = ({ editReview, setEditReview, onCancelEdit }) => {
+const EditReviewForm = ({ editReview, setEditReview, onCancelEdit, onSaveEdit }) => {
 	return (
 		<div className="mt-4 space-y-4 bg-base-200 p-4 rounded-lg">
 			<div>
@@ -20,7 +20,7 @@ const EditReviewForm = ({ editReview, setEditReview, onCancelEdit }) => {
 			</div>
 			<div className="flex gap-2">
 				<button
-					// onClick={onSave}
+					onClick={onSaveEdit}
 					className="btn btn-sm btn-success"
 				>
 					Save Changes

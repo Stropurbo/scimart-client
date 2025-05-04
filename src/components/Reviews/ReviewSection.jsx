@@ -19,7 +19,7 @@ const ReviewSection = () => {
 		setLoading(true)
 		try {
 			const res = await apiClient.get(`/products/${id}/review/`)
-			setReviews(res.data.results)			
+			setReviews(res.data.results)
 		} catch (error) {
 			console.log(error)
 		} finally {
@@ -41,6 +41,25 @@ const ReviewSection = () => {
 			const res = await AuthApiClient.get(`/has_order/${id}/`)
 			setUserReview(true)
 			setUserReview(res.data.hasOrder)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const handleUpdateReview = async (reviewId) => {
+		try {
+			await AuthApiClient.put(`/products/${id}/review/${reviewId}/`, editReview)
+			setEditId(null)
+			await fetchReview()
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const handleDeleteReview = async (reviewId) => {
+		try {
+			await AuthApiClient.delete(`/products/${id}/review/${reviewId}/`)
+			fetchReview()
 		} catch (error) {
 			console.log(error)
 		}
@@ -87,10 +106,10 @@ const ReviewSection = () => {
 					user={user}
 					editReview={editReview}
 					setEditReview={setEditReview}
-					  editId={editId}
-					  setEditId={setEditId}
-					//   handleUpdateReview={handleUpdateReview}
-					//   handleDeleteReview={handleDeleteReview}
+					editId={editId}
+					setEditId={setEditId}
+					handleUpdateReview={handleUpdateReview}
+					handleDeleteReview={handleDeleteReview}
 				/>
 			)}
 		</div>
