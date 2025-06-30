@@ -25,12 +25,12 @@ import useAuthContext from "../../hooks/useAuthContext";
       { to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
       { to: "/all-product", icon: FiPackage, label: "Products" },
       { to: "/dashboard/product/add", icon: FiPlusCircle, label: "Add Product" },
-      { to: "/category", icon: FiTag, label: "Categories" },
-      { to: "/categories/add", icon: FiPlusCircle, label: "Add Category" },
+      // { to: "/category", icon: FiTag, label: "Categories" },
+      // { to: "/categories/add", icon: FiPlusCircle, label: "Add Category" },
       { to: "/dashboard/cart", icon: FiShoppingBag, label: "Cart" },
       { to: "/dashboard/orders", icon: FiShoppingCart, label: "Order" },
-      { to: "/reviews", icon: FiStar, label: "Reviews" },
-      { to: "/users", icon: FiUsers, label: "Users" },
+      // { to: "/reviews", icon: FiStar, label: "Reviews" },
+      // { to: "/users", icon: FiUsers, label: "Users" },
     ];
 
     const menuItems = user.is_staff ? adminMenu : customerMenu

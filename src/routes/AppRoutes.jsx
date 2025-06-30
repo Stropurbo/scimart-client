@@ -10,7 +10,6 @@ import Dashboard from '../pages/Dashboard'
 import PrivateRoute from '../components/PrivateRoute'
 import ActivateAccount from '../components/Registration/ActivateAccount'
 import DashboardLayout from '../layout/DashboardLayout'
-import Profile from '../pages/Profile'
 import ForgetPassPage from '../pages/ForgetPassPage'
 import ResetPasswordConfirmPage from '../pages/ResetPasswordConfirmPage'
 import ResendActivation from '../pages/ResendActivation'
@@ -19,6 +18,7 @@ import Cart from '../pages/Cart'
 import OrderPage from '../pages/OrderPage'
 import PaymentSuccess from '../pages/PaymentSuccess'
 import AddProduct from '../pages/AddProduct'
+import Profile from '../pages/Profile'
 
 const AppRoutes = () => {
 	return (
@@ -66,6 +66,10 @@ const AppRoutes = () => {
 						path="shop/:id"
 						element={<ProductDetail />}
 					/>
+					<Route
+						path="profile"
+						element={<Profile />}
+					/>
 				</Route>
 
 				{/* private routes */}
@@ -81,10 +85,7 @@ const AppRoutes = () => {
 						index
 						element={<Dashboard />}
 					/>
-					<Route
-						path="profile"
-						element={<Profile />}
-					/>
+
 					<Route
 						path="activate/:uid/:token"
 						element={<ActivateAccount />}

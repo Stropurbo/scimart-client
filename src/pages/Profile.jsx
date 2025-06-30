@@ -12,8 +12,11 @@ const Profile = () => {
     const {register, watch, setValue, handleSubmit,formState:{errors, isSubmitting}} = useForm()
 
     useEffect(() => {
-        Object.keys(user).forEach((key) => setValue(key ,user[key]))
-    }, [user, setValue])
+		if (user) {
+			Object.keys(user).forEach((key) => setValue(key, user[key]))
+		}
+	}, [user, setValue])
+    
 
     const onSubmit = async(data) => {
         try {
